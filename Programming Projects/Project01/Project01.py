@@ -3,7 +3,7 @@ DEVELOPER: Raul Aguilar
 COLLABORATORS: <other names>
 COURSE:	CS226 Discrete Structures
 PROJECT:	Project01
-LAST MODIFIED: 25 August 2021
+LAST MODIFIED: 28 August 2021
 '''
 ##########################################
 #	<TITLE OF PROGRAM>
@@ -21,28 +21,40 @@ LAST MODIFIED: 25 August 2021
 ##########################################
 # FUNCTIONS:
 ##########################################
-#DESCRIPTION:<description of what function does>
-#<define functions here>
+def isConjunction(pvalue, qvalue):
+    # Checks if both truth values are True
+    # If so, returns True and is a conjunction
+    # Otherwise return False, not a conjunction
+    return pvalue[0].lower() == 't' and qvalue[0].lower() == 't'
+
+def isDisjunction(pvalue, qvalue):
+    # Checks if either truth value is True
+    # If so, returns True and is a disjunction
+    # Otherwise return False, not a disjunction
+    return pvalue[0].lower() == 't' or qvalue[0].lower() == 't'
+
+def isExclusiveOr(pvalue, qvalue):
+    # Checks if both truth values are different from each other
+    # If so, returns True
+    # Otherwise, returns False
+    return isDisjunction(pvalue, qvalue) and not isConjunction(pvalue, qvalue)
+
+def isConditionalStatement(pvalue, qvalue):
+    # Checks if p is True and q is False
+    # If so, returns False and is not a conditional statement
+    # Otherwise, returns True ans is a conditional statement
+    return not (pvalue[0].lower() == 't' and qvalue[0].lower() == 'f')
+
+def isBiconditionalStatement(pvalue, qvalue):
+    # Check if both truth values are the same
+    # If so, returns True and is a biconditional statement
+    # Otherwise, return False and is not a biconditional statement
+    return pvalue[0].lower() == qvalue[0].lower()
+
 
 ##########################################
 # MAIN PROGRAM:
 ##########################################
-
-def isConjunction(pvalue, qvalue):
-    return pvalue[0].lower() == 't' and qvalue[0].lower() == 't'
-
-def isDisjunction(pvalue, qvalue):
-    return pvalue[0].lower() == 't' or qvalue[0].lower() == 't'
-
-def isExclusiveOr(pvalue, qvalue):
-    return isDisjunction(pvalue, qvalue) and not isConjunction(pvalue, qvalue)
-
-def isConditionalStatement(pvalue, qvalue):
-    return not (pvalue[0].lower() == 't' and qvalue[0].lower() == 'f')
-
-def isBiconditionalStatement(pvalue, qvalue):
-    return pvalue[0].lower() == qvalue[0].lower()
-
 def main():
     p = 't'
     q = 't'
