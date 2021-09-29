@@ -33,6 +33,32 @@ def unionHelper(setA, setB, unionSet):
             return unionHelper(setA[1:], setB[1:], unionSet)
     return unionSet
 
+def intersection(setA, setB):
+    return intersectionHelper(setA, setB, "")
+
+def intersectionHelper(setA, setB, interSet):
+    for i in range(len(setA)):
+        if setA[i] == "1" and setB[i] == "1":
+            interSet += "1"
+            return intersectionHelper(setA[1:], setB[1:], interSet)
+        else:
+            interSet += "0"
+            return intersectionHelper(setA[1:], setB[1:], interSet)
+    return interSet
+
+def exclusiveOr(setA, setB):
+    return exclusiveOrHelper(setA, setB, "")
+
+def exclusiveOrHelper(setA, setB, exclusiveSet):
+    for i in range(len(setA)):
+        if setA[i] != setB[i]:
+            exclusiveSet += "1"
+            return exclusiveOrHelper(setA[1:], setB[1:], exclusiveSet)
+        else:
+            exclusiveSet += "0"
+            return exclusiveOrHelper(setA[1:], setB[1:], exclusiveSet)
+    return exclusiveSet
+
 ##########################################
 # MAIN PROGRAM:
 ##########################################
@@ -40,7 +66,14 @@ def main():
     setA = '1111100000'
     setB = '1010101010'
 
-    print(union(setA, setB))
+    print("Set A: ", setA)
+    print("Set B: ", setB)
+    print('-------------------')
+    print('Union:             ', union(setA, setB))
+    print('Intersection:      ', intersection(setA, setB))
+    print('Cartesian Product: ')
+    print('Exclusive Or:      ', exclusiveOr(setA, setB))
+    print('Phi of A:          ')
 
 
 main()
