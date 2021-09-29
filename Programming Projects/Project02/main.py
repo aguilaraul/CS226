@@ -20,20 +20,27 @@ LAST MODIFIED: 09 23 2021
 ##########################################
 # FUNCTIONS:
 ##########################################
-#DESCRIPTION:<description of what function does>
-#<define functions here>
+def union(setA, setB):
+    return unionHelper(setA, setB, "")
+
+def unionHelper(setA, setB, unionSet):
+    for i in range(len(setA)):
+        if setA[i] == "1" or setB[i] == "1":
+            unionSet += "1"
+            return unionHelper(setA[1:], setB[1:], unionSet)
+        else:
+            unionSet += "0"
+            return unionHelper(setA[1:], setB[1:], unionSet)
+    return unionSet
 
 ##########################################
 # MAIN PROGRAM:
 ##########################################
 def main():
-    sets = []
-    i = 0
-    with open('input.txt') as f:
-        data = f.read()
+    setA = '1111100000'
+    setB = '1010101010'
 
-
-    print(data)
+    print(union(setA, setB))
 
 
 main()
