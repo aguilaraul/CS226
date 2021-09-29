@@ -32,7 +32,7 @@ def lcm(inta, intb):
 # MAIN PROGRAM:
 ##########################################
 def main():
-    print("Enter two integers")
+    print("Enter two positive integers")
     a = int(input("a: "))
     b = int(input("b: "))
     s = 'The GCD of ' + repr(a) + ' and ' + repr(b) + ' is ' + repr(gcd(a, b))
