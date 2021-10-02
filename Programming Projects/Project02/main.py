@@ -46,6 +46,11 @@ def intersectionHelper(setA, setB, interSet):
             return intersectionHelper(setA[1:], setB[1:], interSet)
     return interSet
 
+def cartesianProduct(setA, setB):
+    for i in range(len(setA)):
+        for j in range(len(setB)):
+            print('{', setA[i], ', ', setB[j], '}')
+
 def exclusiveOr(setA, setB):
     return exclusiveOrHelper(setA, setB, "")
 
@@ -63,17 +68,18 @@ def exclusiveOrHelper(setA, setB, exclusiveSet):
 # MAIN PROGRAM:
 ##########################################
 def main():
-    setA = '1111100000'
-    setB = '1010101010'
+    setA = '12'
+    setB = 'abc'
 
     print("Set A: ", setA)
     print("Set B: ", setB)
     print('-------------------')
-    print('Union:             ', union(setA, setB))
-    print('Intersection:      ', intersection(setA, setB))
-    print('Cartesian Product: ')
-    print('Exclusive Or:      ', exclusiveOr(setA, setB))
-    print('Phi of A:          ')
+    # print('Union:             ', union(setA, setB))
+    # print('Intersection:      ', intersection(setA, setB))
+    # print('Cartesian Product: ')
+    # print('Exclusive Or:      ', exclusiveOr(setA, setB))
+    # print('Phi of A:          ')
+    cartesianProduct(setA, setB)
 
 
 main()
